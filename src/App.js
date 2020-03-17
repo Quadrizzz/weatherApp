@@ -8,7 +8,7 @@ class App extends Component{
     super();
     this.state = {
       city : "",
-      display : []
+      display : null
     }
   }
 
@@ -19,13 +19,13 @@ class App extends Component{
   }
 
   fethdata=()=>{
-    fetch(`https://www.api.openweathermap.org/data/2.5/weather?q=${ this.state.city }&appid=d2d86a50e28bb4640bcc1e017fbd9e92`,{
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${ this.state.city }&appid=d2d86a50e28bb4640bcc1e017fbd9e92`,{
       headers : { 
         'Content-Type': 'application/json',
         'Accept': 'application/json'
        }
     }).then(response=>{ 
-      return response.json()}).then( users => { console.log(users)});
+      return response.json()}).then( users => { this.setState({ display : users}) });
   }
 
   render(){
