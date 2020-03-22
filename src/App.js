@@ -8,23 +8,23 @@ class App extends Component{
     super();
     this.state = {
       city : "",
-      display : null
+      display:null
     }
   }
 
   onsearchchange = () => {
-    this.setState({city : document.getElementById("inputbox").value })
-    this.fethdata()
-    // console.log(event.target.value)
+    this.setState({city : document.getElementById("inputbox").value }, this.fethdata)
+
   }
 
   fethdata=()=>{
-    fetch(`https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${ this.state.city }&appid=d2d86a50e28bb4640bcc1e017fbd9e92`,{
-      headers : { 
+    fetch(`https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${ this.state.city }&units=metric&appid=d2d86a50e28bb4640bcc1e017fbd9e92`,{
+      headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
-       }
-    }).then(response=>{ 
+    }
+  
+  }).then(response=>{ 
       return response.json()}).then( users => { this.setState({ display : users}) });
   }
 
