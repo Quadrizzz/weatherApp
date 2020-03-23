@@ -1,9 +1,10 @@
 import React from 'react';
+import './App.css'
 
 const Searchbox = ({city , searchchange})=>{
     
   return(
-    <div className = "pa2">
+    <div className = "search">
         <input type = "search" placeholder = 'Search City ' 
               id = "inputbox"
          ></input>

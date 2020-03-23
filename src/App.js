@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Card from './card';
 import Searcbox from './searchbox'
+import Header from './header'
 
 class App extends Component{
   constructor(){
@@ -30,7 +31,8 @@ class App extends Component{
 
   render(){
   return(
-      <div>
+      <div id = 'main'>
+        <Header/>
         <Searcbox   searchchange = {this.onsearchchange} />
         <Card city = { this.state.city } display = { this.state.display }/>
       </div>
