@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
-import Card from './card';
-import Searcbox from './searchbox'
-import Header from './header'
+import Card from '../Components/card';
+import Searcbox from '../Components/searchbox'
+import Header from '../Components/header'
 
 class App extends Component{
   constructor(){
@@ -25,8 +25,17 @@ class App extends Component{
         'Accept': 'application/json'
     }
   
-  }).then(response=>{ 
-      return response.json()}).then( users => { this.setState({ display : users}) });
+  }).then((response)=>{ 
+    if(response.status >= 200 && response.status <= 299){
+      return response.json()}
+    else{
+      throw Error(response.statusText)
+    }
+    }
+      ).then( users => { this.setState({ display : users}) }
+      ).catch((error) => {
+         alert(error + " PLEASE RELOAD THE PAGE")
+      });
   }
 
   render(){
@@ -34,7 +43,7 @@ class App extends Component{
       <div id = 'main'>
         <Header/>
         <Searcbox   searchchange = {this.onsearchchange} />
-        <Card city = { this.state.city } display = { this.state.display }/>
+        <Card city = { this.state.city } display = { this.state.display }  errorText = {this.state.errorText}/>
       </div>
     )
   }

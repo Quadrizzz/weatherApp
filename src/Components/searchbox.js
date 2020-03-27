@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css'
+import '../Container/App.css'
 
 const Searchbox = ({city , searchchange})=>{
     
