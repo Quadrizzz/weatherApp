@@ -1,34 +1,86 @@
 body{
     margin: 0;
     padding: 0;
-    background: linear-gradient(to left , rgb(2, 11, 20) 0% , rgb(6, 51, 88) 100%) ;
+    background: url(../Components/assets/Witching\ Hour.jpg );
+    background-size: cover;
+}
+
+@font-face{
+    font-family: myFirstFont;
+    src: url(../Components/assets/Chalk-y\ Sans.otf );
 }
 
 .header{
-    height: 150px;
-    background: linear-gradient(to left , rgb(2, 11, 20) 0% , rgb(6, 51, 88) 100%) ;
-    background-size: cover;
-    background-position: center;
+    height: 70px;
+    margin-bottom: 20px;
     margin-top: 0;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     color: white;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: x-large;
-    font-weight: lighter;
-    text-shadow: 0px 1px 1px rgb(185, 180, 180);
-    border-bottom: thick solid white;
+    font-weight: 10;
+}
+
+.header div button{
+    margin-left: 10px;
+    font-size: large;
+    margin-right: 10px;
+    border-radius: 10px;
+    height: 30px;
+    width: 100px;
+    background: white;
+    outline: none;
+    color: #240b36;
+    border: thin none transparent;
+}
+
+.header h1{
+    font-family: myFirstFont;
 }
 
 #main{
-    background: linear-gradient(to left , rgb(2, 11, 20) 0% , rgb(6, 51, 88) 100%);
-    height:70vh;
+    background: url(../Components/assets/Witching\ Hour.jpg);
+    height:100vh;
     background-size: cover;
     background-position: center;
 
+}
+
+#anime{
+    height: 100px;
+    margin-left: 600px;
+    margin-top: 100px;
+    width: 10vw;
+    background-color: white;
+    animation: radius 3s infinite , backgroundcolor 3s infinite;
+    transition: ease;
+    
+}
+
+@keyframes radius{
+    from{border-radius: 0px;
+    }
+
+    to{
+        border-radius: 100px;
+    }
+}
+
+@keyframes backgroundcolor{
+    0%{
+        background-color: white;
+    }
+
+    50%{
+        background-color: rgb(245, 111, 21);
+    }
+
+    100%{
+        background-color: white;
+    }
 }
 
 .search{
@@ -38,7 +90,8 @@ body{
 
 .search input{
     height: 40px;
-    width: 60vw;
+    margin-top: 100px;
+    width: 30vw;
     border: thin none transparent;
     padding: 10px;
     border-radius: 3px;
@@ -69,7 +122,7 @@ body{
     background-color: white;
     border-radius: 5px;
     margin: 20px;
-    margin-top: 20vh;
+    margin-top: 10vh;
     padding: 30px;
 }
 
@@ -100,6 +153,29 @@ body{
 
 h1{
     margin-left : 10px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: white;
+}
+
+#ncards{
+    width: 1000px;
+    height: 400px;
+    padding: 30px;
+    margin-left: 250px;
+    border-radius: 10px;
+    color :#240b36
+}
+
+#ncards h1{
+    color: #240b36;
+    font-family: myFirstFont;
+}
+
+#ncards p{
+    color: #240b36;
+    font-size: larger;
+    
+}
+
+.condiv h1{
+    font-family: myFirstFont;
 }

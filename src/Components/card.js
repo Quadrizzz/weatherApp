@@ -1,13 +1,19 @@
 import React from 'react';
 import '../Container/App.css';
-import Temp from './temp_icon.png'
-import Wind from './logo_1.png'
+import Temp from '../Components/assets/temp_icon.png'
+import Wind from '../Components/assets/logo_1.png'
 
 const Card = ( {  display })=>{
     if(!display){
-        return(<h1>Search for a city</h1>)
+        return(
+            <div id = "anime">
+                
+            </div>
+        )
     }
-    else{
+
+    else {
+    
         return(
             <div className = " card ">
                 <div id = "fdiv">
@@ -29,7 +35,9 @@ const Card = ( {  display })=>{
                
             </div>
         )
-    }
 }
+
+}
+
 
 export default Card;
