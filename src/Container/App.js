@@ -67,7 +67,7 @@ class App extends Component{
   }
   fetchNews = ()=>{
    
-    fetch(`https://newsapi.org/v2/top-headlines?country=${this.state.country}&apiKey=ae9717a8858e42ac93e084632e4f5386`)
+    fetch(`https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=${this.state.country}&apiKey=ae9717a8858e42ac93e084632e4f5386`)
       .then(response => response.json())
       .then((data)=>{
         this.setState({news : data})
