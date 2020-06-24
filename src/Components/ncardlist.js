@@ -17,6 +17,7 @@ const Cardlist = ({ news })=>{
                 content = {news.articles[i].content}
                 url = {news.articles[i].url}
                 publishedAt = {news.articles[i].publishedAt}
+                key = {i}
                 />)
         })
         return(
