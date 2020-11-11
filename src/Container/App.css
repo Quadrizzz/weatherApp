@@ -327,6 +327,17 @@ h1{
         padding: 0px;
     }
 
+    .card div{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 0;
+        padding: 0;
+        color: rgb(6, 51, 88);
+    }
+
     #anime{
         height: 110px;
         margin-left: 120px;
