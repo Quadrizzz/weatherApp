@@ -3,16 +3,8 @@ import '../Container/App.css';
 import Temp from '../Components/assets/temp_icon.png'
 import Wind from '../Components/assets/logo_1.png'
 
-const Card = ( {  display })=>{
-    if(!display){
-        return(
-            <div id = "anime">
-                
-            </div>
-        )
-    }
+const Card = ( { display})=>{
 
-    else {
     
         return(
             <div className = " card ">
@@ -35,7 +27,6 @@ const Card = ( {  display })=>{
                
             </div>
         )
-}
 
 }
 

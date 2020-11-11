@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Card from '../Components/card';
-import Cardlist from '../Components/ncardlist'
+import Loading from '../Components/loading'
+// import Cardlist from '../Components/ncardlist'
 import Searcbox from '../Components/searchbox'
 import Header from '../Components/header'
 import Contacts from '../Components/contacts'
@@ -14,23 +15,28 @@ class App extends Component{
       route : "home",
       city : "",
       display:null,
-      trial : false,
       news :  null,
-      country : null
+      country : null,
+      loading : "false"
     }
-    this.fetchNews = this.fetchNews.bind(this);
   }
 
   onsearchchange = () => {
-    this.setState({city : document.getElementById("inputbox").value }, this.fethdata)
-    this.setState({trial : true})
+    this.fethdata()
+    this.setLoading("true")
   }
 
-  onchange = ( event )=>{
-        if(event.target.value === ""){
+  onchange = ( e )=>{
+        if(e.target.value === ""){
           this.setState({ display : null});
-          this.setState({trial : false})
         }
+        else{
+          this.setState({city : e.target.value})
+        }
+  }
+
+  setLoading = (val)=>{
+    this.setState({loading : val})
   }
 
   onRouteChange = (input) =>{
@@ -55,28 +61,20 @@ class App extends Component{
     }
       ).then( users => {
         if(users){
-          this.setState({ display : users})
-          this.setState({country : users.sys.country})
-          this.fetchNews()
-
+          this.setState({ display : users}, this.setLoading("false"))
+ 
         }
       }
     ).catch((error) => {
          alert(error + " PLEASE ENTER A VALID CITY")
       });
   }
-  fetchNews = ()=>{
-   
-    fetch(`https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/top-headlines?country=${this.state.country}&apiKey=ae9717a8858e42ac93e084632e4f5386`)
-      .then(response => response.json())
-      .then((data)=>{
-        this.setState({news : data})
-      })    
-  }
+
+
 
   render(){
-    const {city, display, news, trial, route, errorText} = this.state;
-  if(!this.state.trial && route === 'home'){
+    const {city, display, route, errorText, loading} = this.state;
+  if(loading === "false" && route === 'home' && !display){
     return(
       <div id = 'main'>
         <Header onRouteChange = {this.onRouteChange}/>
@@ -84,13 +82,23 @@ class App extends Component{
       </div>
     )
   }
-  else if(trial && route === "home"){
+  else if(loading === "true" && route === "home" && !display){
+    return(
+      <div id = 'main'>
+        <Header onRouteChange = {this.onRouteChange}/>
+        <Searcbox   searchchange = {this.searchchange}  change = { this.onchange }/>
+        <div className = "Loading">
+          <Loading/>
+        </div>
+      </div>
+    )
+  }
+  else if(display && route === "home"){
     return(
         <div id = 'main'>
           <Header onRouteChange = {this.onRouteChange}/>
           <Searcbox   searchchange = {this.searchchange}  change = { this.onchange }/>
           <Card city = { city } display = { display }  errorText = {errorText}/>
-          <Cardlist news = {news} />
         </div>
       )
   }

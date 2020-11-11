@@ -10,7 +10,7 @@ const Searchbox = ({city , searchchange , change})=>{
               onChange = { change  }
          ></input>
          <button onClick = {searchchange}>Search</button>
-         <h1>Search for a city</h1>
+         <h1 id = "search_text">Search for a city</h1>
     </div>
             )
         
