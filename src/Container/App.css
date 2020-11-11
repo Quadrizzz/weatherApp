@@ -129,6 +129,8 @@ body{
     outline: none;
 }
 
+
+
 .card{
     display: flex;
     flex-wrap: wrap;
@@ -300,6 +302,14 @@ h1{
         background: rgb(187, 184, 184);
         color: white;
         outline: none;
+    }
+
+    .main_card{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
     }
 
     .card{

@@ -7,7 +7,8 @@ const Card = ( { display})=>{
 
     
         return(
-            <div className = " card ">
+            <div className = "main_card">
+                  <div className = " card ">
                 <div id = "fdiv">
                     <h3>City : { display.name }</h3>
                     <h3>Country : { display.sys.country }</h3>
@@ -25,6 +26,7 @@ const Card = ( { display})=>{
                 </div> 
 
                
+            </div>
             </div>
         )
 
