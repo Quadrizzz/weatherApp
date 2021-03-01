@@ -46,7 +46,9 @@ class App extends Component{
 
 
   fethdata=()=>{
-    fetch(`https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=${ this.state.city }&units=metric&appid=d2d86a50e28bb4640bcc1e017fbd9e92`,{
+    fetch(`https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${ this.state.city }&units=metric&appid=d2d86a50e28bb4640bcc1e017fbd9e92`,
+    {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'
@@ -67,6 +69,7 @@ class App extends Component{
       }
     ).catch((error) => {
          alert(error + " PLEASE ENTER A VALID CITY")
+         this.setLoading("false")
       });
   }
 
