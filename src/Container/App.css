@@ -9,6 +9,20 @@ body{
     src: url(../Components/assets/Chalk-y\ Sans.otf );
 }
 
+.construction{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.construction img{
+    width: 50%;
+    height: auto;
+}
+
 .header{
     margin-bottom: 20px;
     margin-top: 0;
